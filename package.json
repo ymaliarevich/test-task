@@ -1,0 +1,19 @@
+{
+  "name": "test-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tests-headed": "npx playwright test --headed",
+    "tests": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "dotenv": "^16.3.1",
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.9.2"
+  }
+}
