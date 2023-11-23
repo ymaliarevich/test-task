@@ -16,7 +16,7 @@ test.describe('Jobs spec', () => {
      * 6. Remove job alert
      * 7. Check job alert absent on the page
      */
-    test('User can create and delete alert', async ({page}) => {
+    test('Scenario 4: User can create and delete alert', async ({page}) => {
         await steps.openApp(page);
         const mainPage = await steps.login(page, mainUser);
         await mainPage.rightNavigation.openMyJobAlertsPage();
