@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "pretty": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": false,
+    "noImplicitUseStrict": false,
+    "outDir": "dist",
+    "rootDir": "./",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.json"
+  ],
+  "exclude": [
+    "./dist/**"
+  ]
+}

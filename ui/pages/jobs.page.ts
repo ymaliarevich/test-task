@@ -19,7 +19,7 @@ export class JobsPage extends BasePage {
         await this.searchJobBtn.click();
     }
 
-    async checkSearchItemsIs(count: number) {
+    async checkSearchItemIs(count: number) {
         await expect(this.searchItem).toHaveCount(count);
     }
 }

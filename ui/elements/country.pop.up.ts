@@ -11,7 +11,10 @@ export class CountryPopUp extends WebElement {
     }
 
     async closePopUp() {
-        await this.closeAlertBtn.click();
-        await this.title.waitFor({state: 'detached'});
+        await this.page.waitForTimeout(500);
+        if (await this.closeAlertBtn.isVisible()) {
+            await this.closeAlertBtn.click();
+            await this.title.waitFor({state: 'detached'});
+        }
     }
 }

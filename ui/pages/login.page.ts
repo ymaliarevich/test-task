@@ -1,6 +1,6 @@
 import {BasePage} from "./base.page";
-import {User} from "../../types/user";
 import {expect} from "@playwright/test";
+import {User} from "../../types/user";
 
 export class LoginPage extends BasePage {
     get email() {
@@ -25,7 +25,7 @@ export class LoginPage extends BasePage {
         await this.submit.click();
     }
 
-    async checkWrongPasswordErrorPresent() {
+    async checkWrongPasswordErrorVisible() {
         await expect(this.wrongPasswordError).toBeVisible();
     }
 }
