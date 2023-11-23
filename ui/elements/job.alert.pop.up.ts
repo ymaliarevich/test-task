@@ -1,8 +1,8 @@
 import {WebElement} from "../web.element";
-import {JobData} from "../../test.data/job.data";
+import {Job} from "../../test.data/job";
 
 export class JobAlertPopUp extends WebElement {
-    get searchByTitleTB() {
+    get searchByRoleTB() {
         return this.getElement('[name="searchString"]')
     }
 
@@ -14,9 +14,9 @@ export class JobAlertPopUp extends WebElement {
         return this.getElement('[value="Receive The Latest Jobs"]')
     }
 
-    async searchBy(jobAlertData: JobData) {
-        await this.searchByTitleTB.fill(jobAlertData.role);
-        await this.searchByLocationTB.fill(jobAlertData.location)
+    async searchBy(job: Job) {
+        await this.searchByRoleTB.fill(job.role);
+        await this.searchByLocationTB.fill(job.location)
         await this.receiveLatestJobsBtn.click()
     }
 }

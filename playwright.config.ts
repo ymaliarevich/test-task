@@ -12,9 +12,11 @@ export default defineConfig({
   testDir: './tests',
   forbidOnly: !!process.env.CI,
   fullyParallel: true,
+  timeout: 15 * 1000,
   reporter: 'list',
   use: {
     screenshot: 'only-on-failure',
     locale: 'en-GB',
+    headless: false
   },
 });

@@ -1,8 +1,9 @@
 import {BasePage} from "./base.page";
 import {expect} from "@playwright/test";
+import {Job} from "../../test.data/job";
 
 export class JobsPage extends BasePage {
-    get searchForJobs() {
+    get searchForJobsTB() {
         return this.getElement('[name=searchWhat]');
     }
 
@@ -14,12 +15,16 @@ export class JobsPage extends BasePage {
         return this.getElement('//div[contains(@class, "searchResultItem")]');
     }
 
-    async searchForJob(job: string) {
-        await this.searchForJobs.fill(job);
+    async searchByRole(job: Job) {
+        await this.searchForJobsTB.fill(job.role);
         await this.searchJobBtn.click();
     }
 
     async checkSearchItemIs(count: number) {
         await expect(this.searchItem).toHaveCount(count);
+    }
+
+    async checkUrl() {
+        await expect(this.page).toHaveURL(new RegExp('.*/jobs$'))
     }
 }

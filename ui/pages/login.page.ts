@@ -1,17 +1,17 @@
 import {BasePage} from "./base.page";
 import {expect} from "@playwright/test";
-import {User} from "../../types/user";
+import {User} from "../../test.data/user";
 
 export class LoginPage extends BasePage {
-    get email() {
+    get emailTB() {
         return this.getElement('[name="email"]');
     }
 
-    get password() {
+    get passwordTB() {
         return this.getElement('[name="password"]');
     }
 
-    get submit() {
+    get submitBtn() {
         return this.getElement('[type="submit"]');
     }
 
@@ -20,12 +20,16 @@ export class LoginPage extends BasePage {
     }
 
     async login(user: User) {
-        await this.email.fill(user.email);
-        await this.password.fill(user.password);
-        await this.submit.click();
+        await this.emailTB.fill(user.email);
+        await this.passwordTB.fill(user.password);
+        await this.submitBtn.click();
     }
 
     async checkWrongPasswordErrorVisible() {
         await expect(this.wrongPasswordError).toBeVisible();
+    }
+
+    async checkUrl() {
+        await expect(this.page).toHaveURL(new RegExp('.*/nav/login-for-members$'))
     }
 }

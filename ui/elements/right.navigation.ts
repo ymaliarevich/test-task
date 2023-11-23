@@ -1,9 +1,9 @@
 import {WebElement} from "../web.element";
 import {expect} from "@playwright/test";
-import {User} from "../../types/user";
+import {User} from "../../test.data/user";
 
 export class RightNavigation extends WebElement {
-    get hamburger() {
+    get hamburgerBtn() {
         return this.getElement('//span[contains(@class, "menuHamburger")]');
     }
 
@@ -20,8 +20,7 @@ export class RightNavigation extends WebElement {
     }
 
     async open() {
-        await this.page.waitForTimeout(1000);
-        await this.hamburger.click();
+        await this.hamburgerBtn.click({timeout: 500});
     }
 
     async openSignInPage() {

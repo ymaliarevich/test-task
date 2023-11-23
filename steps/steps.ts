@@ -1,7 +1,7 @@
 import {Page} from "@playwright/test";
 import {MainPage} from "../ui/pages/main.page";
 import {LoginPage} from "../ui/pages/login.page";
-import {User} from "../types/user";
+import {User} from "../test.data/user";
 
 export const steps = {
     login: async (page: Page, user: User): Promise<MainPage> => {
@@ -11,6 +11,7 @@ export const steps = {
         await mainPage.rightNavigation.openSignInPage();
         const loginPage = new LoginPage(page)
         await loginPage.login(user);
+        await page.waitForTimeout(500);
         return new MainPage(page);
     },
 

@@ -5,14 +5,15 @@
 This project based in [Playwright framework](https://playwright.dev/) and [TypeScript](https://www.typescriptlang.org/)
 
 ## Description 
-This project contains 3 tests for https://www.whatjobs.com
+This project contains 4 tests for https://www.whatjobs.com
 
 ## Structure 
 This project contains several layers
 - tests - test layer 
 - utils - utils layer. There is an object here for generating random data, specifically passwords.
-- types - Here are descriptions of types needed for tests.
+- test.data - Here are descriptions of test data needed for tests.
 - ui - Here are classes of pages and elements present on those pages. WebElement is a parent class where a function for locating elements is defined.
+- steps - Here are steps for complex actions (like login and so on)
 
 ## Preparation
 

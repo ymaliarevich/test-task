@@ -11,6 +11,7 @@ export class CountryPopUp extends WebElement {
     }
 
     async closePopUp() {
+        //There is small defect on application. If we quickly close pop up - it appears again
         await this.page.waitForTimeout(500);
         if (await this.closeAlertBtn.isVisible()) {
             await this.closeAlertBtn.click();

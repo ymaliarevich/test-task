@@ -1,15 +1,21 @@
 import {test} from '@playwright/test';
 import {steps} from "../steps/steps";
 import {MyJobAlertsPage} from "../ui/pages/my.job.alerts.page";
-import {JobData} from "../test.data/job.data";
-import {mainUser} from "../types/user";
+import {qaAutomationNewYork} from "../test.data/job";
+import {mainUser} from "../test.data/user";
 
 test.describe('Jobs spec', () => {
-    const jobData: JobData = {
-        role: 'QA Automation',
-        location: 'New York'
-    }
 
+    /**
+     * Scenario 4:
+     * 1. Open https://www.whatjobs.com
+     * 2. Login
+     * 3. Open job alerts page
+     * 4. Create job alert
+     * 5. Check job alert present on the page
+     * 6. Remove job alert
+     * 7. Check job alert absent on the page
+     */
     test('User can create and delete alert', async ({page}) => {
         await steps.openApp(page);
         const mainPage = await steps.login(page, mainUser);
@@ -17,10 +23,10 @@ test.describe('Jobs spec', () => {
         const myJobAlertsPage = new MyJobAlertsPage(page);
         await myJobAlertsPage.checkUrl();
         await myJobAlertsPage.createJobAlert();
-        await myJobAlertsPage.jobAlertPopUp.searchBy(jobData);
-        await myJobAlertsPage.checkJobAlertVisible(jobData);
-        await myJobAlertsPage.deleteJobAlert(jobData);
-        await myJobAlertsPage.checkJobAlertHidden(jobData);
+        await myJobAlertsPage.jobAlertPopUp.searchBy(qaAutomationNewYork);
+        await myJobAlertsPage.checkJobAlertVisible(qaAutomationNewYork);
+        await myJobAlertsPage.deleteJobAlert(qaAutomationNewYork);
+        await myJobAlertsPage.checkJobAlertHidden(qaAutomationNewYork);
     });
 })
 
