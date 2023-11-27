@@ -11,7 +11,7 @@ export const steps = {
         await mainPage.rightNavigation.openSignInPage();
         const loginPage = new LoginPage(page)
         await loginPage.login(user);
-        await page.waitForTimeout(500);
+        await page.waitForTimeout(1000);
         return new MainPage(page);
     },
 
