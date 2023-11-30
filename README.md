@@ -2,10 +2,46 @@
 
 ## Getting started
 
-This project based in [Playwright framework](https://playwright.dev/) and [TypeScript](https://www.typescriptlang.org/)
+This project based in [Playwright framework](https://playwright.dev/), [TypeScript](https://www.typescriptlang.org/) and page object model
 
 ## Description 
 This project contains 4 tests for https://www.whatjobs.com
+
+Scenario 1:
+* Open https://www.whatjobs.com
+* Close country pop up
+* Open right navigation
+* Click Sign In
+* Set correct credentials and click Login
+* Open right navigation
+* Check that user email present
+
+
+Scenario 2:
+* Open https://www.whatjobs.com
+* Close country pop up
+* Open right navigation
+* Click Sign In
+* Set correct email and incorrect password and click Login
+* Check that 'Wrong password' error present
+
+
+Scenario 3:
+* Open https://www.whatjobs.com
+* Open Jobs page
+* Set 'QA Automation' to job text box and click "Search Job"
+* Check that 10 jobs present on the page
+
+
+Scenario 4:
+* Open https://www.whatjobs.com
+* Login
+* Open job alerts page
+* Create job alert
+* Check job alert present on the page
+* Remove job alert
+* Check job alert absent on the page
+         
 
 ## Structure 
 This project contains several layers
